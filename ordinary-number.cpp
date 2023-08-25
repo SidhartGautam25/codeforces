@@ -2,16 +2,14 @@
 using namespace std;
 
 void solve(){
-   int l,r;
-   cin>>l>>r;
-   if(r<2*l){
-    cout<<-1<<" "<<-1<<endl;
-    return;
-   }else{
-    cout<<l<<" "<<2*l<<endl;
-    return;
+   int n;
+   cin>>n;
+   vector<int>arr(n);
+   for(int i=0;i<n;i++){
+    int temp;
+    cin>>temp;
+    
    }
-   
 }
 int main() {
     int t;

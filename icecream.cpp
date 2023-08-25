@@ -2,16 +2,12 @@
 using namespace std;
 
 void solve(){
-   int l,r;
-   cin>>l>>r;
-   if(r<2*l){
-    cout<<-1<<" "<<-1<<endl;
-    return;
-   }else{
-    cout<<l<<" "<<2*l<<endl;
-    return;
-   }
-   
+   long long n;
+   cin>>n;
+   double temp=2*n+0.25;
+   double x=sqrt(temp)+0.25;
+   long long ans=ceil(x);
+   cout<<ans<<endl;
 }
 int main() {
     int t;
