@@ -10,7 +10,23 @@ void solve(){
     cin>>arr[i];
     mp[arr[i]]++;
   }
-  cout<<"edited"<<endl;
+  sort(arr.begin(),arr.end());
+  int localmax=0;
+  int count=0;
+  for(auto it:mp){
+    int num=it.first;
+    int f=it.second;
+    if(mp.find(num-1) ==mp.end()){
+      count=count+localmax;
+      localmax=f;
+    }else{
+        localmax=max(localmax,f);
+    }
+
+  }
+  count=count+localmax;
+  cout<<count<<endl;
+
 
 
 
