@@ -2,10 +2,15 @@
 using namespace std;
 
 #define ll long long
-#define ll mod 1000000007
+
 
 
 void solve(){
+    string s;
+    ll n;
+    cin>>s;
+    cin>>n;
+    
  
 }
 int main() {
