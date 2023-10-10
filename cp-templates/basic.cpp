@@ -2,7 +2,7 @@
 using namespace std;
 
 #define ll long long
-#define ll mod 1000000007
+#define mod 1000000007
 
 
 void solve(){
