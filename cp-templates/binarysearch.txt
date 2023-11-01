@@ -1,0 +1,8 @@
+long long lo = val1, hi = val2;
+	while (lo < hi) {
+		long long mid = lo + (hi - lo + 1) / 2;
+		//calculating req_cond
+		if (req_cond <= cond) {lo = mid;} 
+		else {hi = mid - 1;}
+	}
+	req-ans=lo;
