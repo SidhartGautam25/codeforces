@@ -6,36 +6,54 @@ using namespace std;
 
 
 void solve(){
-    ll n,q;
-    cin>>n>>q;
-    vector<ll>a(n);
-    vector<ll>b;
-    for(int i=0;i<n;i++){
-        ll temp;
-        cin>>temp;
-        a[i]=temp;
+    int a,b,c;
+    ll sum;
+    cin>>a>>b>>c;
+    sum=a+b+c;
+    if(a==b and b==c){
+        cout<<"YES"<<endl;
+        return;
     }
-    for(int i=0;i<q;i++){
-        int temp;
-        cin>>temp;
-        ll x=1<<temp;
-       if(b.empty()==true or b.back()>x){
-        b.push_back(x);
-       }
-    }
-
-    for(int i=0;i<q;i++){
-        for(int j=0;j<n;j++){
-            if(a[j]%b[i]==0){
-                a[j]=a[j]+(b[i]/2);
+    int smallest;
+    int largest;
+    int mid;
+    smallest=min(a,min(b,c));
+    largest=max(a,max(b,c));
+    mid=sum-(smallest+largest);
+    if(largest%smallest != 0){
+        cout<<"NO"<<endl;
+        return;
+    }else{
+        int d=largest/smallest;
+        if((d-1)>3){
+           cout<<"NO"<<endl;
+           return;
+        }else if((d-1)==3){
+            if(mid==smallest){
+                cout<<"YES"<<endl;
+                return;
+            }else{
+                cout<<"NO"<<endl;
+                return;
+            }
+        }else{
+            int c1=largest/smallest;
+            c1=c1-1;
+            if(mid%smallest != 0){
+                cout<<"NO"<<endl;
+                return;
+            }
+            int c2=mid/smallest;
+            c2=c2-1;
+            if(c1+c2<=3){
+                cout<<"YES"<<endl;
+                return;
+            }else{
+                cout<<"NO"<<endl;
+                return;
             }
         }
     }
-    for(int i=0;i<n;i++){
-        cout<<a[i]<<" ";
-    }
-    cout<<endl;
-    
  
 }
 int main() {
