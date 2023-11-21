@@ -57,9 +57,6 @@ void solve(){
 
 
         }
-     
-
-        
 
     }
       // cout<<"ans is ";
