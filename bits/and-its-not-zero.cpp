@@ -22,6 +22,7 @@ void solve(){
         mmin=min(mmin,count);
     }
     cout<<mmin<<endl;
+    //time limit exceded
 }
 int main() {
     ios_base::sync_with_stdio(false);
