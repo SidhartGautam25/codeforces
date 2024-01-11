@@ -5,6 +5,11 @@ using namespace std;
 #define mod 1000000007
 
 
+bool comp(const pair<int,int>&a,const pair<int,int>&b){
+    return a.first<b.first;
+}
+
+
 
 void make_graph(int n,vector<vector<int>>& graph){
      for(int i=1;i<=n;i++){
