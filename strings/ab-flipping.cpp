@@ -24,7 +24,7 @@ void solve(){
         cout<<count<<endl;
         return;
     }else{
-         for(int i=k;i<n;i++){
+        for(int i=k;i<n;i++){
         char c=str[i];
         if(c=='A'){
             continue;
