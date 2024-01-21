@@ -9,6 +9,15 @@ void solve(){
     ll n,x,t;
     cin>>n>>x>>t;
 
+    ll count=0;
+    if(x>t){
+        cout<<"0"<<endl;
+        return;
+    }
+    ll d=min(t/x,n-1);
+    count=count+(d/2)*(1+d);
+    count=count+d*(n-(d+1));
+    cout<<count<<endl;
     
  
 }

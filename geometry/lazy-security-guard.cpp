@@ -8,33 +8,32 @@ using namespace std;
  
  
 void solve(){  
-    string s;
-    cin>>s;
-    int n=s.size();
-    int i=0;
-    while(i<n and s[i] == 'a'){
-        i++;
+    ll n;
+    cin>>n;
+    ll a=1;
+    while(a*a<=n){
+        a=a+1;
     }
-    if(i==n){
-        cout<<s<<endl;
+    a=a-1;
+    if(a*a==n){
+        ll ans=4*a;
+        cout<<ans<<endl;
+        return;
+    }else{
+        ll rem=n-a*a;
+        ll h=(rem+a-1)/a;
+        
+        ll ans=4*a+2*h;
+        cout<<ans<<endl;
         return;
     }
-    while(i<n and s[i] != 'a'){
-        s[i]=s[i]-1;
-    }
-    cout<<s<<endl;
-  
-   
- 
-  
- 
 }
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
  
     ll t=1;
-    //cin>>t;
+   
  
     while(t>0){
     

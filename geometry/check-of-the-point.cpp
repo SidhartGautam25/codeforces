@@ -8,25 +8,19 @@ using namespace std;
  
  
 void solve(){  
-    string s;
-    cin>>s;
-    int n=s.size();
-    int i=0;
-    while(i<n and s[i] == 'a'){
-        i++;
-    }
-    if(i==n){
-        cout<<s<<endl;
+    int a,x,y;
+    cin>>a>>x>>y;
+    if(x>a or y>a or x<0 or y>0 ){
+        cout<<"2"<<endl;
+        return;
+    }else if(x==0 or y==0 or x==a or y==a){
+        cout<<"1"<<endl;
+        return;
+    }else{
+        cout<<"1"<<endl;
         return;
     }
-    while(i<n and s[i] != 'a'){
-        s[i]=s[i]-1;
-    }
-    cout<<s<<endl;
-  
-   
- 
-  
+
  
 }
 int main() {
@@ -34,7 +28,7 @@ int main() {
     cin.tie(NULL);
  
     ll t=1;
-    //cin>>t;
+   
  
     while(t>0){
     
