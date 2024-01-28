@@ -21,9 +21,7 @@ void solve()
     arr[i].second=y[i];
    }
    sort(arr.begin(),arr.end());
-//   for(int i=0;i<n;i++){
-//       cout<<"arr[i]= "<<arr[i].first<<"  "<<arr[i].second<<endl;
-//   }
+
    unordered_map<ll,ll>mpx;
    unordered_map<ll,ll>mpy;
    
@@ -36,18 +34,18 @@ void solve()
   
    ll ans=0;
    for(auto it:mpx){
-       //cout<<"element "<<it.first<<" frequency "<<it.second<<endl;
+     
     ll t=it.second;
-   // cout<<"t= "<<t<<endl;
+  
     ans=ans+((t*(t-1))/2);
    }
-  //cout<<"ans 1 "<<ans<<endl;
+  
     for(auto it:mpy){
     ll t=it.second;
-    //cout<<"q "<<t<<endl;
+    
     ans=ans+((t*(t-1))/2);
    }
-    //cout<<"ans 2 "<<ans<<endl;
+  
    ll i=0;
    while(i<n){
        ll j=i+1;
@@ -55,7 +53,7 @@ void solve()
            j++;
        }
        ll t=j-i;
-      //cout<<"t= "<<t<<endl;
+     
        ans=ans-(((t*(t-1))/2));
        i=j;
        
