@@ -99,7 +99,11 @@ void solve()
                 if((msone.find(gone[i])==msone.end()) or (msone.find(gone[j])==ms.end())){
                     if((mstwo.find(gtwo[i])==mstwo.end()) or (mstwo.find(gtwo[j])==mstwo.end())){
                         count++;
-                    ans.push_back(make_pair(i,j));
+                        ans.push_back(make_pair(i,j));
+                        msone.insert(gone[i]);
+                        msone.insert(gone[j]);
+                        mstwo.insert(gtwo[i]);
+                        mstwo.insert(gtwo[j]);
 
                     }
                     

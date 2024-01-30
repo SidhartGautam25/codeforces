@@ -3,49 +3,68 @@ using namespace std;
 
 #define ll long long
 #define mod 1000000007
-bool comp(const pair<int,int>&a,const pair<int,int>&b){
-    
-    a.first<b.first;
-}
 
-void dfs(vector<vector<int>>&tree,int node,int*count,vector<bool>&vis){
+
+ll dfs(vector<vector<ll>>&tree,ll node,vector<bool>&vis,unordered_map<ll,ll>&mp){
     if(vis[node]){
-        return;
+        return 0;
     }
     vis[node]=true;
-    if(tree[node].size()==1){
-        //cout<<"here i am"<<endl;
-        int t=*count;
-        *count=t+1;
-        //cout<<"count "<<count<<" *count "<<*count<<endl;
+    if(tree[node].size()==1 and node != 1){
+        mp[node]=1;
+        //cout<<"leave is "<<node<<endl;
+        return 1;
     }
     // cout<<"setting for ind "<<ind<<" and x is "<<x<<endl;
     // cout<<"size is "<<g[ind].size()<<endl;
-    for(int i=0;i<tree[node].size();i++){
+    ll leaves=0;
+    for(ll i=0;i<tree[node].size();i++){
         //cout<<"now going to "<<g[ind][i]<<endl;
-        dfs(tree,tree[node][i],count,vis);
+        leaves=leaves+dfs(tree,tree[node][i],vis,mp);
     }
+    mp[node]=leaves;
+    return leaves;
 
 }
 
 void solve()
 {
-    int n;
+    ll n;
     cin>>n;
-    vector<vector<int>>tree(n+1);
-    for(int i=1;i<n;i++){
-        int a,b;
+    vector<vector<ll>>tree(n+1);
+
+    for(ll i=1;i<n;i++){
+        ll a,b;
         cin>>a>>b;
         tree[a].push_back(b);
         tree[b].push_back(a);
     }
-    int count=0;
-    vector<bool>vis(n+1,false);
-    dfs(tree,1,&count,vis);
-    //cout<<"count "<<count<<endl;
-    ll ans=(count+1)/2;
-    cout<<ans<<endl;
 
+    ll q;
+    cin>>q;
+    vector<pair<ll,ll>>arr(q);
+
+    for(ll i=0;i<q;i++){
+        ll a,b;
+        cin>>a>>b;
+        arr[i].first=a;
+        arr[i].second=b;
+    }
+
+    vector<bool>vis(n+1,false);
+    unordered_map<ll,ll>mp;
+    ll leaves=dfs(tree,1,vis,mp);
+    // for(auto it:mp){
+    //     cout<<"node is "<<it.first<<" and val is "<<it.second<<endl;
+    // }
+    //cout<<"query started and q= "<<q<<endl;
+    for(ll i=0;i<q;i++){
+        ll first=mp[arr[i].first];
+        ll sec=mp[arr[i].second];
+        ll ans=first*sec;
+        cout<<ans<<endl;
+    }
+    
    
 
 }
