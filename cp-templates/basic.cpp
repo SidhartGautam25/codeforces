@@ -5,10 +5,26 @@ using namespace std;
 #define mod 1000000007
 
 
-bool comp(const pair<int,int>&a,const pair<int,int>&b){
-    return a.first<b.first;
-}
 
+ll power(ll x, ll y)
+{
+    ll temp;
+    if (y == 0){
+        ll ans=1;
+        return ans;
+
+    }
+       
+    temp = power(x, y / 2);
+    if (y % 2 == 0)
+        return ((temp%mod) * (temp%mod))%mod;
+    else{
+        ll p1=((x%mod)*(temp%mod))%mod;
+        ll p2=((p1%mod)*(temp%mod))%mod;
+        return p2;
+    }
+        
+}
 
 
 void make_graph(int n,vector<vector<int>>& graph){
