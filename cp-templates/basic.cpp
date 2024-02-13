@@ -26,6 +26,14 @@ ll power(ll x, ll y)
         
 }
 
+ll ncr(int n,int r){
+    ll prod=1;
+      for(int i = 1; i <= r; i++){
+            prod = prod * (n - r + i) / i;
+        }
+        return prod;
+}
+
 
 void make_graph(int n,vector<vector<int>>& graph){
      for(int i=1;i<=n;i++){
