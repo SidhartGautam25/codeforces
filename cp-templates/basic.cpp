@@ -2,7 +2,7 @@
 using namespace std;
 
 #define ll long long
-#define mod 1000000007
+#define mod LLONG_MAX
 
 
 
