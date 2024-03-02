@@ -1,6 +1,14 @@
 {
     "workbench.colorCustomizations": {
+        
+
         "editor.selectionBackground": "#7B7D7D",
         "editor.selectionHighlightBackground": "#7B7D7D",
+    },
+    "editor.semanticTokenColorCustomizations": {
+
+    },
+    "editor.tokenColorCustomizations": {
+
     }
 }
