@@ -34,6 +34,24 @@ ll ncr(int n,int r){
         return prod;
 }
 
+int divide(int x,int y){
+    
+}
+
+ll ncr(int n,int r){
+    vector<int>fac[n+1];
+    fac[0]=1;
+    for(int i=1;i<=n;i++){
+         fac[i]=fac[0]*i;
+    }
+    return divide(fac[n],mul(fact[k],fac[n-k]));
+}
+
+
+
+
+
+
 
 void make_graph(int n,vector<vector<int>>& graph){
      for(int i=1;i<=n;i++){
