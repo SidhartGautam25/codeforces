@@ -10,7 +10,7 @@ using namespace std;
 
 int mul(int x, int y)
 {
-    return (x * 1ll * y) % MOD;
+    return (x * 1ll * y) % mod;
 }
 
 
@@ -29,7 +29,7 @@ int binpow(int x, int y)
 
 int inv(int x)
 {
-    return binpow(x, MOD - 2);
+    return binpow(x, mod - 2);
 }
 
 int divide(int x, int y)
@@ -38,12 +38,12 @@ int divide(int x, int y)
 }
 
 ll ncr(int n,int r){
-    vector<int>fac[n+1];
+    vector<int>fact(n+1);
     fact[0]=1;
     for(int i=1;i<=n;i++){
         fact[i] = mul(fact[i - 1], i);
     }
-    return divide(fac[n],mul(fact[k],fac[n-k]));
+    return divide(fact[n],mul(fact[r],fact[n-r]));
 }
 
 
