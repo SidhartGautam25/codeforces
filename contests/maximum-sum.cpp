@@ -38,18 +38,18 @@ void solve(){
     //cout<<"i "<<i<<" p "<<p<<endl;
     i++;
    }
-   cout<<"s "<<s<<endl;
+   //cout<<"s "<<s<<endl;
    ans=((ans%mod)*(p%mod))%mod;
-   cout<<"ans "<<ans<<endl;
+   //cout<<"ans "<<ans<<endl;
    ans=((ans%mod)+(s%mod))%mod;
-   cout<<"final "<<ans<<endl;
+   //cout<<"final "<<ans<<endl;
    ans=(ans+mod)%mod;
    cout<<ans<<endl;
 
    
  
 }
-ll main() {
+int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
