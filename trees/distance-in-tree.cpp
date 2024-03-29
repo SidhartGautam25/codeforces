@@ -24,8 +24,11 @@ void ans_cal(vector<vector<ll>>&tree,ll curr,ll p,vector<vector<ll>>&dp,vector<v
         dis[curr][d]=dp[curr][d];
     }
     if(curr != 1){
-        dis[curr][1]=dis[curr][1]+dis[p][0];
+        
+        dis[curr][1]=dis[curr][1]+1;
         for(ll d=2;d<=k;d++){
+            // you can think that why not simply add d[p][d-1] to it,but the catch is dis[p][d-1] also
+            // considers all node at distance d-1 who are in subtrees of thier parent also.
             dis[curr][d]=dis[curr][d]+dis[p][d-1];
             dis[curr][d]=dis[curr][d]-dp[curr][d-2];
         }
