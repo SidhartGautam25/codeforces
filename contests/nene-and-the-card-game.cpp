@@ -4,8 +4,7 @@ using namespace std;
 #define ll long long
 #define mod LLONG_MAX
 
-// for geometry
-// https://victorlecomte.com/cp-geo.pdf
+
 
 ll power(ll x, ll y)
 {
@@ -78,6 +77,30 @@ void dfs(vector<vector<int>>& graph,int curr,vector<bool>& vis,ll& count,vector<
 }
 
 void solve(){
+    int n;
+    cin>>n;
+    int arr[n];
+    unordered_map<int,int>mp;
+    set<int>st;
+    for(int i=0;i<n;i++){
+       cin>>arr[i];
+       mp[arr[i]]++;
+       st.insert(arr[i]);
+    }
+    int me=0;
+    int nene=0;
+    for(auto x:st){
+        if(mp.find(x)!=mp.end()){
+            if(mp[arr[i]]==2){
+               me++;
+            }else{
+                nene++;
+            }
+        }else{
+            nene++;
+        }
+    }
+    cout<<me<<endl;
     
 }
 
