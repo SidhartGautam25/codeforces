@@ -10,7 +10,7 @@ int dfs(vector<vector<int>>&tree,int node,int p,vector<int>&subtree_size,vector<
     for(int i=0;i<tree[node].size();i++){
         int child=tree[node][i];
         if(child != p){
-            int s=dfs(tree,child,node);
+            int s=dfs(tree,child,node,subtree_size,val,cost);
             subtree_size[node]=subtree_size[node]+s;
         }
     }
@@ -26,7 +26,10 @@ void COST_DFS(vector<vector<int>>&tree,int node,int p,vector<int>&subtree_size,v
 
     if(node != 1){
         int t=val[node]^val[p];
-        dp[node]=dp[p]-(subtree_size[p]+subtree_size[node])*t;
+        cout<<"for node "<<node<<endl;
+        cout<<" t "<<t<<endl;
+        cout<<"val for node "<<val[node]<<" val[p] "<<val[p]<<endl;
+        dp[node]=dp[p]-(subtree_size[node]+subtree_size[p])*t;
 
     }
     
@@ -47,7 +50,7 @@ void solve(){
         cin>>vals[i];
     }
     vector<vector<int>>tree(n+1);
-    vector<vector<int>>subtree_size(n+1);
+    vector<int>subtree_size(n+1);
     int cost=0;
     for(int i=1;i<n;i++){
         int u,v;
@@ -56,13 +59,13 @@ void solve(){
         tree[v].push_back(u);
     }
     vector<int>dp(n+1);
-    dfs(tree,1,1,subtree_size,cost);
+    dfs(tree,1,1,subtree_size,vals,cost);
     dp[1]=cost;
-    COST_DFS(tree,1,1,subtree_size,val,dp);
+    COST_DFS(tree,1,1,subtree_size,vals,dp);
     for(int i=1;i<=n;i++){
         cout<<dp[i]<<"  ";
     }
-    cout<endl;
+    cout<<endl;
 }
 
 int main() {
