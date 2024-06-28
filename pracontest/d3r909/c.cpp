@@ -13,7 +13,7 @@ void solve(){
    for(ll i=0;i<n;i++){
     cin>>arr[i];
    }
-   ll ans=ll_MIN;
+   ll ans=INT_MIN;
    ll sum=0;
    for(ll i=0;i<n;i++){
      if(i==0){
