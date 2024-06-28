@@ -7,21 +7,21 @@ using namespace std;
 
 
 void solve(){
-    int n;
+    ll n;
     cin>>n;
-    vector<int>arr(n);
-    for(int i=0;i<n;i++){
+    vector<ll>arr(n);
+    for(ll i=0;i<n;i++){
         cin>>arr[i];
     }
-    int minInd=0;
-    int mmin=arr[0];
-    for(int i=1;i<n;i++){
+    ll minInd=0;
+    ll mmin=arr[0];
+    for(ll i=1;i<n;i++){
         if(mmin>arr[i]){
             mmin=arr[i];
             minInd=i;
         }
     }
-    for(int i=minInd+1;i<n;i++){
+    for(ll i=minInd+1;i<n;i++){
         if(arr[i]>=arr[i-1]){
             continue;
         }else{
