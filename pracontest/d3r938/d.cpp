@@ -11,38 +11,43 @@ void solve(){
         map<int,int>mp;
         for(int i=0;i<n;i++){
             cin>>a[i];
+            mp[a[i]]=0;
         }
         for(int i=0;i<m;i++){
             cin>>b[i];
             mp[b[i]]++;
         }
-        vector<int>count(n+1,0);
-        map<int,int>last;
-        for(int i=0;i<n;i++){
-            if(mp.find(a[i]) != mp.end()){
-                if((last.find(a[i]) == last.end()) || (last[a[i]]<=(i-k))){
-                         count[i+1]=count[i]+1;
-                }
-                
-                last[a[i]]=i;
-            }else{
-                count[i+1]=count[i];
-
-            }
-
-        }
-        int ans=0;
        
-        for(int i=m-1;i<n;i++){
-            int diff=count[i+1]-count[i-m+1];
-            if(diff>=k){
+       int i=0;
+       int j=0;
+       map<int,int>hash;
+       int ans=0;
+       int count=0;
+       while(j<n){
+           //cout<<"loop "<<endl;
+        hash[a[j]]++;
+        if(mp[a[j]]>0 && (hash[a[j]]<=mp[a[j]])){
+            count++;
+        }
+        //cout<<"count "<<count<<" j-i+1 "<<(j-i+1)<<endl;
+        //cout<<"a[j] "<<a[j]<<" hash aj "<<hash[a[j]]<<" mp aj "<<mp[a[j]]<<endl;
+        while((j-i+1)>=m and count>=k){
+            //cout<<"in loop"<<endl;
+            //cout<<"countttt "<<count<<" j-i+1 "<<(j-i+1)<<endl;
+            if(count>=k and (j-i+1)==m){
                 ans++;
             }
-
+            if(mp[a[i]]>0 && (hash[a[i]]<=mp[a[i]])){
+                count--;
+            }
+            hash[a[i]]--;
+            i++;
         }
-        cout<<ans<<endl;
-
-    
+        j++;
+           
+          
+       }
+    cout<<ans<<endl;
    
 }
  
