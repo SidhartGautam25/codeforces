@@ -10,10 +10,10 @@ void solve(){
    
         int n;
         cin >> n;
-        string ans="";
+        string result="";
         for (int d = 9; d >= 1; d--)
             if (n >= d) {
-                ans = char('0' + d) + result;
+                result = char('0' + d) + result;
                 n -= d;
             }
         cout << result << endl;
